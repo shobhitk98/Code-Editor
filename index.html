@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/d0/79/81/d079816c1e699834fd1f01eceeddee8e.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+         <div class="left">
+            <label> <img src="html-5.png" height="20px" alt=""> HTML</label>
+            <textarea id="html-code" onkeyup="run()"></textarea>
+            <label><img src="css-3.png" height="20px">CSS</label>
+            <textarea id="css-code" onkeyup="run()"></textarea>
+            <label> <img src="js.png" height="20px" alt="">Javascript</label>
+            <textarea id="js-code" onkeyup="run()"></textarea>
+         </div>
+         <div class="right">
+            <label > <img src="output.png"height="20px">Output</label>
+            <iframe id="output"></iframe>
+         </div>
+
+    </div>
+    <script>
+        function run(){
+            let htmlCode =document.getElementById("html-code").value;
+            let cssCode =document.getElementById("css-code").value;
+            let jsCode =document.getElementById("js-code").value;
+            let output =document.getElementById("output");
+
+            output.contentDocument.body.innerHTML=htmlCode+"<style>" + cssCode + "</style>" + "<script>"
+                output.contentWindow.eval(jsCode);
+     
+
+
+        }
+    </script>
+    
+</body>
+</html>
